@@ -10,8 +10,6 @@ int queso = random(1,NUM_LEDS);
 int puntos = 0;
 int minutos = 2;
 int segundos = 0;
-int obstaculoRandom = random(4,NUM_LEDS);
-int obstaculo[4]= {obstaculoRandom,10,70,55};
 long tiempoMaximo = 120000;
 bool juego =false;
  LiquidCrystal lcd(12,11,5,4,3,2);
@@ -102,22 +100,4 @@ void mostrarTiempo(){
    }
  }
 
-void obstaculos(){
-  
-   unsigned long currentTime = millis();
-   int previousTime = 0;
-   long interval = 60000;
-   if (currentTime - previousTime > interval){
-    obstaculoRandom=random(4,NUM_LEDS);
-    obstaculo[0]=  obstaculoRandom;
-    previousTime =  currentTime;
-   }
-   for(int i=0;i<=3;i++){
-    if(obstaculo[i]==ledActual){
-      digitalWrite(9,HIGH);
-      delay(4000);
-      digitalWrite(9,LOW);  
-    }
-    }
-   }
 
